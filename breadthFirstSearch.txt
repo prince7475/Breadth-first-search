@@ -1,0 +1,37 @@
+Implement the breadthFirstSearch method on the node class
+
+class Node {
+  constructor(name){
+    this.name = name
+    this.children = []
+  }
+  
+  addChild(name){
+    this.children.push(new Node(name))
+    return this
+  }
+  
+  breadthFirstSearch(array){
+    let queue = [this]
+    while(queue.length > 0){
+      let node = queue.shift()
+      node.children.forEach((child) => {
+        queue.push(child)
+      })
+      array.push(node.name)
+    }
+    return array
+  }
+}
+
+-- Create a queue
+    queue.push(node)
+    while(queue.length > 0){
+      let node = queue.shift()
+      node.children.forEach((child) => {
+        queue.push(child)
+      })
+      
+      array.push(node.name)
+    }
+    return array
